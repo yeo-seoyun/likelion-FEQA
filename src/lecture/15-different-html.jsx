@@ -60,6 +60,7 @@ const createApp = (data) => {
   );
 };
 
+// JSX에서 style 속성을 설정할 때는 JavaScript 객체로 설정해야 한다.
 const styles = {
   form: {
     "margin-block": "8px",
