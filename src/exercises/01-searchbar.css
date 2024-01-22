@@ -28,6 +28,7 @@
   padding: 12px 12px 12px 20px;
   background: var(--white, #FFFFFF);
   border-radius: 50px;
+  min-width: 192px;
 
   &:focus-within {
     box-shadow: var(--shadow--100);
