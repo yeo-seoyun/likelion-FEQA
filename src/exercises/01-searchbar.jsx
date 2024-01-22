@@ -1,12 +1,20 @@
-// React, ReactDOM
-// Creating React Element
-// ReactDOM ???
+// no module (without from)
+import "./01-searchbar.css";
 
+// module
 import React from "https://esm.sh/react";
 import { createRoot } from "https://esm.sh/react-dom";
 
-// SVG in HTML vs. JSX
-const iconCircle = (
+// DOM Script === Vanilla Script
+function bodyStyling() {
+  document.body.style.backgroundColor = `#f4f6f8`;
+}
+
+bodyStyling();
+
+/* -------------------------------------------------------------------------- */
+
+const renderIconCircle = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
     <path
       fillRule="evenodd"
@@ -30,7 +38,7 @@ const iconCircle = (
   </svg>
 );
 
-const iconNaver = (
+const renderIconNaver = () => (
   <svg
     width="24"
     height="24"
@@ -60,19 +68,29 @@ const iconNaver = (
   </svg>
 );
 
-const searchBar = (
+const renderSearchButton = () => (
+  <button type="submit" aria-label="검색" title="검색">
+    {renderIconCircle()}
+  </button>
+);
+
+const renderFormControl = () => (
+  <div role="group">
+    <label htmlFor="search" className="sr-only">
+      검색어
+    </label>
+    <input id="search" type="search" placeholder="검색어를 입력해주세요." />
+  </div>
+);
+
+const renderSearchBar = () => (
   <form className="searchBar">
-    <div role="group">
-      <label htmlFor="search" className="sr-only">
-        검색어
-      </label>
-      <input id="search" type="search" placeholder="검색어를 입력해주세요." />
+    <div className="searchBarGroup" role="group">
+      {renderIconNaver()}
+      {renderFormControl()}
     </div>
-    {/* type = submit[ | button | reset] */}
-    <button type="submit" aria-label="검색" title="검색">
-      {iconCircle}
-    </button>
+    {renderSearchButton()}
   </form>
 );
 
-createRoot(document.getElementById("root")).render(searchBar);
+createRoot(document.getElementById("root")).render(renderSearchBar());
