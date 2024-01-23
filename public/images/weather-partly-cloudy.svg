@@ -1,27 +1,4 @@
-// no module (without from)
-import "./02-widget.css";
-
-// module
-import React from "https://esm.sh/react";
-import { createRoot } from "https://esm.sh/react-dom";
-
-// DOM Script === Vanilla Script
-function bodyStyling() {
-  document.body.style.backgroundColor = `#f4f6f8`;
-}
-
-bodyStyling();
-
-const renderTemperatures = () => (
-  <div className="temperatures">
-    <h2>-0.9°</h2>
-    <p>어제보다 1.3° 낮아요</p>
-  </div>
-);
-
-const renderWeather = () => (
-  <div className="weather">
-    <svg
+<svg
       width="51"
       height="49"
       viewBox="0 0 51 49"
@@ -191,14 +168,3 @@ const renderWeather = () => (
         </linearGradient>
       </defs>
     </svg>
-  </div>
-);
-
-const renderWidget = () => (
-  <div className="widget">
-    {renderTemperatures()}
-    {renderWeather()}
-  </div>
-);
-
-createRoot(document.getElementById("root")).render(renderWidget());

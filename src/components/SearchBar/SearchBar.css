@@ -24,23 +24,25 @@
   display: flex;
   justify-content: space-between;
   gap: 16px;
-  border: 1px solid var(--green-100, #03cc5c);
-  padding: 12px 12px 12px 20px;
-  background: var(--white, #FFFFFF);
-  border-radius: 50px;
   min-width: 192px;
-
+  border: 1px solid var(--green-500, #03CC5C);
+  padding: 12px 12px 12px 20px;
+  background: var(--white, #FFF);
+  border-radius: 50px;
+  
   &:focus-within {
     box-shadow: var(--shadow--100);
   }
-
+  
   /* container */
   [role="group"] {
+    flex: 1;
     display: flex;
     gap: 12px;
   }
 
   input[type="search"] {
+    flex: 1;
     overflow: hidden;
     text-overflow: ellipsis;
     border: 0;
@@ -54,12 +56,13 @@
       outline: none;
     }
 
-    /* &:focus-visible {
-      outline: 2px solid var(--green--100);
-    } */
+    /* &:focus-visible { */
+      /* outline: 2px solid var(--green--500); */
+      /* border-radius: 4px; */
+    /* } */
 
     &::placeholder {
-      color: var(--gray--100, #BCC3C7);
+      color: var(--gray-100, #BCC3C7);      
     }
   }
 
@@ -67,18 +70,18 @@
     --size: 24px;
 
     cursor: pointer;
-    background-color: transparent;
     inline-size: var(--size);
     block-size: var(--size);
-    padding: 0;
     border: 0;
+    padding: 0;
+    background-color: transparent;
 
     &:focus {
       outline: none;
     }
 
     &:focus-visible {
-      outline: 2px solid var(--green--100);
+      outline: 4px solid var(--green--100);
       border-radius: 50%;
     }
 
