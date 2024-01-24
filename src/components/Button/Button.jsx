@@ -1,20 +1,21 @@
 import './Button.css';
 
-// props: { loading, inactive, disabled, moden type, state, ... }
+// props: { loading, disable, disabled, mode, type, state, ... }
 
 function Button(props) {
-  let buttonLable = props.children;
+  let buttonLabel = props.children;
 
   if (props.loading) {
-    buttonLable = '로딩 중...';
+    buttonLabel = '⏳ 로딩 중...';
   }
+
   return (
     <button
       type={props.type ?? 'button'}
       className="Button"
       disabled={props.disable}
     >
-      {buttonLable}
+      {buttonLabel}
     </button>
   );
 }

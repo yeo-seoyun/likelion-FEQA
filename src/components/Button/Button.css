@@ -9,11 +9,6 @@
   font-weight: 600;
   font-size: 12px;
 
-  &:hover {}
-
-  &:focus {}
-  &:focus-visible {}
-
   &:active:not(:disabled) {
     scale: 0.96;
   }

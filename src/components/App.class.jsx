@@ -1,3 +1,5 @@
+import React from 'react';
+
 // 리액트 클래스 컴포넌트 타입
 // React.Component Type 1 :: class syntax
 
