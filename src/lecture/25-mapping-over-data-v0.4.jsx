@@ -1,13 +1,30 @@
+/* eslint-disable react/jsx-key */
+
+// import { createElement as h } from 'react';
 import './25-mapping-over-data.css';
 import contactData from '../data/contacts.json';
 import { ContactCard, ContactCardList } from './23-contact-card';
 
+function ListItem({ item }) {
+  return <li>{item.name}</li>;
+}
+
 export default function Exercise() {
   return (
     <ContactCardList>
-      {contactData.items.map((item) => (
-        <ContactCard key={item.id} {...item} />
-      ))}
+      {
+        /* <ul> */ contactData.items.map(
+          (item) => (
+            // JSX
+            // <ContactCard key={item.id} {...item} />
+            <ListItem key={item.id} item={item} />
+            // <li key={item.id}>{item.name}</li>
+          )
+          // React API
+          // h(ContactCard, /* props */ { key: item.id, ...item })
+          // React.createElement(type, props)  // props = { key, ... }
+        )
+      }
     </ContactCardList>
   );
 }
@@ -23,3 +40,6 @@ export default function Exercise() {
 // - 그러므로 이전 / 이후 변화가 있는 것만 비교하는 것이 보다 효과적인 알고리즘입니다.
 // - 효과적인 비교를 위해서는 고유 식별자가 필요합니다. 그것이 key 입니다.
 // - 모든 스냅샷에서 각 아이템을 고유하게 식별하므로서 리액트는 정확히 변경사항을 확인해 최상의 성능으로 변화를 반영합니다.
+
+// key 속성은 고유해야한다
+// - 컴포넌트 props에 포함되지 않는다.
