@@ -1,5 +1,5 @@
 import './App.css';
-import Exercise from '../lecture/31-event-handling';
+import Exercise from '../lecture/32-react-state-management.jsx';
 
 function App() {
   return (
