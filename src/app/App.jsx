@@ -1,5 +1,5 @@
 import './App.css';
-import Exercise from '../lecture/34-object-array-state-manage-v2.jsx';
+import Exercise from '../lecture/35-props-vs-states.jsx';
 
 function App() {
   return (
