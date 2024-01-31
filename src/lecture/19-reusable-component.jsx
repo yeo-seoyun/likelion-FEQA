@@ -1,5 +1,5 @@
 import { createRoot } from 'react-dom/client';
-import FormControl from '../components/FormControl';
+import FormControl from '@/components/FormControl';
 
 // 컴포넌트 변형 (Variants)
 

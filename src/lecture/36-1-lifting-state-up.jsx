@@ -8,7 +8,7 @@
 
 import classes from './36-lifting-state-up.module.css';
 import { useState } from 'react';
-import { A11yHidden } from '../components';
+import { A11yHidden } from '@/components';
 
 // 상태 끌어올리기...? 어떻게 하는 거죠
 

@@ -8,3 +8,4 @@ export { default as Button } from './Button/Button';
 export { default as Widget } from './Widget/Widget';
 export { default as CatCardList } from './CatCardList/CatCardList';
 export { default as CountUp } from './CountUp/CountUp';
+export { default as FormInput } from './Forminput/Forminput';
