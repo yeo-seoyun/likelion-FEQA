@@ -1,5 +1,5 @@
 import { app as appClassName } from './App.module.css';
-import Exercise from '@/lecture/37-3-react-form-exercise.jsx';
+import Exercise from '@/lecture/38-stack-layout-component.jsx';
 
 console.log(appClassName);
 
