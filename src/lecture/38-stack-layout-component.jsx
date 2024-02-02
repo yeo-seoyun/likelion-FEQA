@@ -4,6 +4,16 @@ import { useId, useState } from 'react';
 
 function Exercise() {
   return (
+    <>
+      <FormControlExample />
+    </>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+
+function FormControlExample() {
+  return (
     <Stack vertical gap={16} my={20}>
       <Stack vertical gap={4}>
         <h2>폼 컨트롤 II</h2>
@@ -30,6 +40,8 @@ const INITIAL_ORDER = {
 
 // Design is All. All is Design.
 
+const LIMIT_TOPPING_COUNT = 3;
+
 function Form() {
   // 주문 폼 상태(like a snapshot) 선언
   const [orderState, setOrderState] = useState(INITIAL_ORDER);
@@ -45,31 +57,31 @@ function Form() {
     setOrderState(nextOrderState);
   };
 
-  const handleChangeAllToppings = (e) => {
-    const { checked } = e.target;
-
-    const nextOrderState = {
-      ...orderState,
-      isAllToppings: checked,
-      toppings: checked ? PIZZA.toppings : [],
-    };
-
-    setOrderState(nextOrderState);
-  };
+  const handleChangeAllToppings = (e) => {};
 
   const handleChangePizzaToppings = (e) => {
-    // if (orderState.toppings.length > 2) {
-    //   return alert('피자 토핑은 3개까지만 선택 가능합니다.🫥');
-    // }
+    const { value: topping /* checked: isChecked */ } = e.target;
 
-    const { value: topping, checked: isChecked } = e.target;
+    // 리액트 입장에서 현재 토핑 집합의 총 갯수
+    const toppingsCount = orderState.toppings.length;
+    // console.log(toppingsCount);
 
-    // console.log('이전 토핑 목록: ', orderState.toppings);
+    // 리액트의 상태 업데이트 논리적인 흐름
+    const isToppingChecked = orderState.toppings.includes(topping);
+
+    // 리액트의 현재 상태 vs. DOM의 현재 상태(리액트의 다음 상태)
+    // console.log({ isToppingChecked, isChecked });
+
+    // 만약 토핑 선택 갯수를 3개로 제한하는 경우, 조건 처리
+    if (toppingsCount === LIMIT_TOPPING_COUNT && !isToppingChecked) {
+      // 사용자에게 경고 메시지를 표시하고 상태 업데이트 중단(return : 함수 종료)
+      return alert('현재(업데이트 전) 토핑 갯수가 3개입니다.');
+    }
 
     let nextToppings = [];
 
     // 사용자가 눌렀을 때 체크되었다
-    if (isChecked) {
+    if (!isToppingChecked) {
       // 토핑 추가
       nextToppings = [...orderState.toppings, topping];
     } else {
@@ -84,8 +96,6 @@ function Form() {
       toppings: nextToppings,
       isAllToppings: hasFullFilledToppings,
     };
-
-    console.log('다음 토핑 목록: ', nextToppings, hasFullFilledToppings);
 
     setOrderState(nextOrderState);
   };
