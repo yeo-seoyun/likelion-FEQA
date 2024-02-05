@@ -5,10 +5,11 @@ module.exports = {
     node: true,
   },
   extends: [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:react/jsx-runtime",
-    "plugin:storybook/recommended"
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
+    'plugin:storybook/recommended',
+    'plugin:react-hooks/recommended',
   ],
   overrides: [],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
@@ -16,10 +17,12 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react'],
+  plugins: ['react', 'react-hooks'],
   rules: {
     'react/prop-types': 'off',
     // "react/jsx-uses-react": "off",
     // "react/react-in-jsx-scope": "off"
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
   },
 };
