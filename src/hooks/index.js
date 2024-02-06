@@ -12,3 +12,4 @@ export { default as useToggle } from './useToggle';
 export { default as useKey } from './useKey';
 export { default as useMousePosition } from './useMousePosition';
 export { default as useFetch } from './useFetch';
+export { default as useStorage } from './useStorage';
