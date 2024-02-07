@@ -10,6 +10,7 @@ module.exports = {
     'plugin:react/jsx-runtime',
     'plugin:storybook/recommended',
     'plugin:react-hooks/recommended',
+    'plugin:@typescript-eslint/recommended',
   ],
   overrides: [],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
@@ -17,12 +18,13 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', 'react-hooks'],
+  parser: '@typescript-eslint/parser',
+  plugins: ['react', '@typescript-eslint'],
   rules: {
-    'react/prop-types': 'off',
-    // "react/jsx-uses-react": "off",
-    // "react/react-in-jsx-scope": "off"
+    // 'react/prop-types': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    // "react/jsx-uses-react": "off",
+    // "react/react-in-jsx-scope": "off"
   },
 };
