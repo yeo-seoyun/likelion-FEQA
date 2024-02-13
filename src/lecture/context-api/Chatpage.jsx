@@ -1,17 +1,15 @@
-// 새로운 JSX 변환(transform) 엔진 사용하기 때문 (v17+)
-// https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
+import ChatPage from './context-api/ChatPage';
 
-import ChatRoomList from './ChatRoomList';
-import NavBar from './NavBar';
-
-function ChatPage() {
+function Exercise() {
   return (
-    <div>
-      <h3>ChatPage</h3>
-      <NavBar />
-      <ChatRoomList />
+    <div className="flex flex-col space-y-5 bg-slate-50 text-slate-950 p-5 shadow-md">
+      <h2 className="text-3xl font-extralight">컨텍스트 API</h2>
+      <p className="text-sm text-slate-600">
+        리액트 컴포넌트 간 상태를 공유하는 효율적인 방법
+      </p>
+      <ChatPage />
     </div>
   );
 }
 
-export default ChatPage;
+export default Exercise;
