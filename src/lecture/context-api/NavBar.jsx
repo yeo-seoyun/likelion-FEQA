@@ -1,23 +1,26 @@
-import { useContext } from 'react';
-import { ChatContext } from './ChatPage';
+import { func } from 'prop-types';
+import { memo, useContext } from 'react';
+import { ChatContext } from '@/contexts/Chat';
 
-function NavBar() {
-  const { users, messages } = useContext(ChatContext);
+function ChatSummary() {
+  const { updateUsers: onUpdate } = useContext(ChatContext);
 
   return (
-    <div className="flex flex-col gap-5 bg-white text-slate-700 p-5 shadow-sm">
-      <h3 className="text-base">NavBar</h3>
-      <div className="text-xs flex flex-col space-y-1">
-        <p>
-          사용자 이름: <b>{users.name}</b>
-        </p>
-        <p>
-          채팅 메시지 갯수 (
-          <span className="font-semibold">{messages.length}</span>)
-        </p>
-      </div>
+    <div className="flex flex-col gap-5 bg-slate-200 p-5">
+      <h3>ChatSummary</h3>
+      <button
+        type="button"
+        className="p-2 border border-slate-400 text-slate-700 rounded-md text-sm"
+        onClick={onUpdate}
+      >
+        사용자 정보 변경
+      </button>
     </div>
   );
 }
 
-export default NavBar;
+ChatSummary.propTypes = {
+  onUpdate: func,
+};
+
+export default memo(ChatSummary);
