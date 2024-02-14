@@ -1,26 +1,23 @@
-// 학습 주제
-// [컴포넌트 사이에 상태를 공유해요~!]
+import classes from './36-lifting-state-up.module.css';
+import { useState } from 'react';
+import { A11yHidden } from '@/components';
+
+// [학습 주제]
+// 컴포넌트 사이에 상태를 공유해요!
 // - 컴포넌트 상태(자신 안에서만 사용 가능)
 // - 하위 컴포넌트에는 속성(props)로 상태를 전달할 수 있다.
 // - 다른 형제 또는 저 멀리 있는 컴포넌트와 상태를 공유할 수 없다.
 // - 컴포넌트 사이에 상태를 공유하려면?
 //   공유하려는 컴포넌트 들의 가장 가까운 상위 컴포넌트로 상태를 끌어올려야 한다.
 
-import classes from './36-lifting-state-up.module.css';
-import { useState } from 'react';
-import { A11yHidden } from '@/components';
-
-// 상태 끌어올리기...? 어떻게 하는 거죠
-
-// [ ] state -> Stateful component (container)
+// states → Stateful component (container)
 function Accordion() {
   const headlineId = crypto.randomUUID();
 
-  const [openPanelIndex, setOpenPanelIndex] = useState(0);
+  const [openedPanelIndex, setOpenedPanelIndex] = useState(0);
 
-  // set을 바꿔줄 수 있는 이벤트 핸들러가 필요함
-  const handleOpenPanner = (panelIndex) => {
-    setOpenPanelIndex(panelIndex);
+  const handleOpenPannel = (panelIndex) => {
+    setOpenedPanelIndex(panelIndex);
   };
 
   return (
@@ -30,15 +27,15 @@ function Accordion() {
       </A11yHidden>
       <AccordionPanel
         index={0}
-        isOpen={openPanelIndex === 0}
-        onToggle={handleOpenPanner}
+        isOpen={openedPanelIndex === 0}
+        onToggle={handleOpenPannel}
       >
         <p>아코디언 컴포넌트는 ..... 1</p>
       </AccordionPanel>
       <AccordionPanel
         index={1}
-        isOpen={openPanelIndex === 1}
-        onToggle={handleOpenPanner}
+        isOpen={openedPanelIndex === 1}
+        onToggle={handleOpenPannel}
       >
         <p>아코디언 컴포넌트는 ..... 2</p>
       </AccordionPanel>
@@ -46,7 +43,7 @@ function Accordion() {
   );
 }
 
-// [x] props -> Stateless component (presentation)
+// props → Stateless component (presentation)
 function AccordionPanel({
   isOpen = false,
   index,

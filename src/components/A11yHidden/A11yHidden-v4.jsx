@@ -1,7 +1,3 @@
-// 내보낸 모듈이 없다.
-// import './A11yHidden.css';
-
-// 내보낸 모듈이 있다면?
 import styles from './A11yHidden.module.css';
 import PropTypes from 'prop-types';
 

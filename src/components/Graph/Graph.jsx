@@ -1,6 +1,6 @@
 import classes from './Graph.module.css';
-import { range } from '../../utils';
 import { number } from 'prop-types';
+import { range } from '@/utils';
 
 function Graph({ start, end, step = 1 }) {
   if (start >= end) {

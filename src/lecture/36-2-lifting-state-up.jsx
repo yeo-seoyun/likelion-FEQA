@@ -1,23 +1,24 @@
 import { useState } from 'react';
-import { range } from './../utils';
+import { range } from '../utils';
 
-function Son({ isActive, onActive, index, value }) {
+function Son({ index, isActive, onActive, value }) {
+  // const [state, setState] = React.useState(initialValue);
   // const [showTextDecoration, setShowTextDecoration] = useState(true);
+  // const handleToggleTextDecoration = () => {
+  //   // setShowTextDecoration((s) => !s);
+  //   setShowTextDecoration(!showTextDecoration);
+  // };
+  // const handleClick = (e) => {
+  //   e.preventDefault();
+  //   handleToggleTextDecoration();
+  // };
+
   const textDecoration = isActive ? 'underline' : 'none';
   const color = isActive ? '#dd3c87' : 'inherit';
 
-  // const handleToggleTextDecoration = () => {
-  //   setShowTextDecoration(s => !s);
-  // }
-
-  // const handleClick = (e) => {
-  //   e.preventDefault()
-  //   handleToggleTextDecoration();
-  // }
-
   const handleClick = (e) => {
     e.preventDefault();
-    // 부모에서 전달받은, 부모의 상태를 업데이트 할 수 있는 함수를 여기서 실행
+    // 부모에서 전달받은 부모의 상태를 업데이트 할 수 있는 함수를 여기서 실행
     onActive(index);
   };
 
@@ -28,9 +29,9 @@ function Son({ isActive, onActive, index, value }) {
           href=""
           onClick={handleClick}
           style={{
-            textDecoration,
-            textUnderlineOffset: '4px',
             color,
+            textDecoration,
+            textUnderlineOffset: 4,
           }}
         >
           자식 컴포넌트 {value}
@@ -41,14 +42,14 @@ function Son({ isActive, onActive, index, value }) {
 }
 
 function Parent({ start = 10, end = 30, step = 10 }) {
-  // 어떤 상태를 가져야 what으로 제어가 가능할까?
+  // 어떤 상태를 가져야 what으로 제어가 가능할까? (<input type="radio" />)
   // - [ ] 사용자가 클릭한 하위 컴포넌트는 활성화가 되어야 한다.
   // - [ ] 활성화된 하위 컴포넌트의 형제 컴포넌트는 모두 비활성화 되어야 한다.
 
   // 선언된 상태 (리액트를 통해 UI를 제어하려고)
-  const [activeIndex, updateActiveIndex] = useState(1);
+  const [activeIndex, updateActiveIndex] = useState(2);
 
-  const handleChangeActviceSon = (sonIndex) => {
+  const handleChangeActiveSon = (sonIndex) => {
     updateActiveIndex(sonIndex);
   };
 
@@ -63,9 +64,9 @@ function Parent({ start = 10, end = 30, step = 10 }) {
             <li key={n}>
               <Son
                 index={index}
-                isActive={activeSon}
                 value={n}
-                onActive={handleChangeActviceSon}
+                isActive={activeSon}
+                onActive={handleChangeActiveSon}
               />
             </li>
           );
@@ -75,10 +76,12 @@ function Parent({ start = 10, end = 30, step = 10 }) {
   );
 }
 
-export default function Exercise() {
+function Exercise() {
   return (
     <div>
-      <Parent></Parent>
+      <Parent />
     </div>
   );
 }
+
+export default Exercise;

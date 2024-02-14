@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-function useMousePosition() {
+function useMousePosition(/* debounceTime = 0 */) {
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {

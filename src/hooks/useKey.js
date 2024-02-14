@@ -3,7 +3,9 @@ import { useEffect } from 'react';
 function useKey(key, callback, eventType = 'keydown') {
   useEffect(() => {
     const handler = (e) => {
-      if (e.code.toLowerCase() === key.toLowerCase()) callback?.(e);
+      if (e.code.toLowerCase() === key.toLowerCase()) {
+        callback?.(e);
+      }
     };
 
     globalThis.addEventListener(eventType, handler);
@@ -11,9 +13,9 @@ function useKey(key, callback, eventType = 'keydown') {
     return () => {
       globalThis.removeEventListener(eventType, handler);
     };
-  }, [key, callback, eventType]);
+  }, [callback, eventType, key]);
 
-  // return => undefined;
+  // return undefined;
 }
 
 export default useKey;

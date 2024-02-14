@@ -1,5 +1,6 @@
-import React from "https://esm.sh/react";
-import { createRoot } from "https://esm.sh/react-dom";
+import React from 'https://esm.sh/react';
+import { createRoot } from 'https://esm.sh/react-dom';
+
 
 // HTML vs. JSX (HTML 아님, 문법은 XML과 유사)
 
@@ -15,7 +16,7 @@ import { createRoot } from "https://esm.sh/react-dom";
 // };
 
 // console.log(
-//     o.if,
+//     o.if, 
 //     o['while'],
 // );
 
@@ -26,61 +27,56 @@ import { createRoot } from "https://esm.sh/react-dom";
 // <div class></div>
 // <label for></label>
 
+
+
 const data = {
-  greetingMessage: ["hello!", "react."],
-  message:
-    "리액트는 사용자 인터페이스 구축을 위한 JavaScript 오픈소스 라이브러리입니다.",
+    greetingMessage: ['hello!', 'react.'],
+    message: '리액트는 사용자 인터페이스 구축을 위한 JavaScript 오픈소스 라이브러리입니다.',
 };
 
 const createApp = (data) => {
-  return (
-    <div id="app">
-      <h1>
-        {data.greetingMessage[0].toUpperCase()}
-        <br />
-        {data.greetingMessage[1].toUpperCase()}
-      </h1>
-      <p>{data.message}</p>
 
-      {/* JSX는 대소문자를 구분한다. */}
-      {/* JSX에서 style 속성을 설정할 때는 JavaScript 객체로 설정해야 한다. */}
-      <form style={styles.form}>
-        {/* JSX : for => htmlFor, class => className */}
-        {/* { htmlFor: 'searchKeyword', className: 'sr-only' } */}
-        {/* <label htmlFor="searchKeyword" className="sr-only">검색</label> */}
-        <input
-          style={styles.input}
-          data-identity="searchKeyword"
-          type="search"
-          placeholder="검색"
-          aria-label="키워드 검색"
-        />
-      </form>
-    </div>
-  );
+    return (
+        <div id="app">
+            <h1>
+                {data.greetingMessage[0].toUpperCase()}
+                <br />
+                {data.greetingMessage[1].toUpperCase()}
+            </h1>
+            <p>{data.message}</p>
+
+            {/* JSX는 대소문자를 구분한다. */}
+            {/* JSX에서 style 속성을 설정할 때는 JavaScript 객체로 설정해야 한다. */}
+            <form style={styles.form}>
+                {/* JSX : for => htmlFor, class => className */}
+                {/* { htmlFor: 'searchKeyword', className: 'sr-only' } */}
+                {/* <label htmlFor="searchKeyword" className="sr-only">검색</label> */}
+                <input
+                    style={styles.input}
+                    data-identity="searchKeyword"
+                    type="search"
+                    placeholder="검색"
+                    aria-label="키워드 검색" />
+            </form>
+        </div>
+    );
 };
 
 // JSX에서 style 속성을 설정할 때는 JavaScript 객체로 설정해야 한다.
 const styles = {
-  form: {
-    "margin-block": "8px",
-    "border-radius": "4px",
-    padding: "16px",
-    "background-color": "#f0f6f8",
-  },
-  input: {
-    padding: "4px 6px",
-    color: "#3d3b3f",
-  },
+    form: {
+        'margin-block': '8px', 
+        'border-radius': '4px', 
+        'padding': '16px', 
+        'background-color': '#f0f6f8',
+    },
+    input: {
+        'padding': '4px 6px', 
+        'color': '#3d3b3f',
+    },
 };
 
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById('root');
 const reactDomRoot = createRoot(rootElement);
 
 reactDomRoot.render(createApp(data));
-
-// function sum(x, options) {
-//   return x + options.y;
-// }
-
-// sum(10, { y: 9 });

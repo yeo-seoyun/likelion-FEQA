@@ -1,10 +1,13 @@
-// 바닐라 스크립트 방식
+// 바닐라 스크립트의 방식
 // jQuery 라이브러리 방식
-// = 명령형 프로그래밍
-
-// 리엑트의 방식 = 선언형 프로그래밍
-// ?
-// => 상태를 선언하여야 한다!
+// 명령형 프로그래밍
+// 어떻게(HOW)
+// [    ]을 입력하면, 이벤트를 감지해서 [    ]에 출력한다.
+// vs.
+// 리액트의 방식
+// 어떤 방법 ??? 선언형 프로그래밍
+// 무엇을(WHAT)
+// 제어할 상태를 선언해야 한다.
 
 import { useState } from 'react';
 import { A11yHidden, FormInput } from '@/components';
@@ -22,6 +25,7 @@ const INITIAL_FEEL_MESSAGE = '공부하기 좋은 날이네~';
 
 // 컴포넌트 추출
 function FormExample() {
+  // [1] 오늘 기분
   const [feelMessage, setFeelMessage] = useState(INITIAL_FEEL_MESSAGE);
 
   const handleUpdateFeelMessage = (nextMessage) => {
@@ -32,16 +36,16 @@ function FormExample() {
     setFeelMessage(e.target.value);
   };
 
-  // email 상태 관리
+  // [2] email 상태 관리
   const [email, setEmail] = useState('');
+
   const handleChangeEmail = (e) => {
-    setEmail(e.target.vaule);
+    setEmail(e.target.value);
   };
 
-  // agree (체크박스) 상태 관리
-  const [agree, setAgree] = useState('네' /*'아니오'*/);
+  // [3] agree 상태 관리
+  const [agree, setAgree] = useState('네' /* '아니오' */);
   const handleChangeAgree = (e) => {
-    // <input type='radio' checked />
     setAgree(e.target.value);
   };
 
@@ -62,7 +66,6 @@ function FormExample() {
           onChange={handleChangeEmail}
         />
 
-        {/* radio input */}
         <div>
           <label>
             <input

@@ -3,7 +3,17 @@ import './23-contact-card.css';
 const IMAGE_URL =
   'https://raw.githubusercontent.com/yamoo9/assets/master/images/faces';
 
-export function ContactCard({ name, job, email, gender, face, ext = 'jpg' }) {
+export function ContactCard({
+  // key,
+  name,
+  job,
+  email,
+  gender,
+  face,
+  ext = 'jpg',
+}) {
+  // console.log(`key = ${key}`); // undefined
+
   return (
     <li className="ContactCardItem">
       <img
@@ -35,9 +45,9 @@ function Exercise() {
       <ContactCard
         gender="woman"
         face={2}
-        name="박연주"
+        name="하연주"
         job="웹 디자이너"
-        email="ayounju@dev.io"
+        email="hayounju@dev.io"
       />
       <ContactCard
         gender="man"

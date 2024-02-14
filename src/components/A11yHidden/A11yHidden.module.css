@@ -1,3 +1,5 @@
+/* CSS Modules <- Vite / PostHTML + PostCSS */
+
 .group {
   overflow: hidden;
   position: absolute;
@@ -9,4 +11,4 @@
   padding: 0;
   border: 0;
   white-space: nowrap;
-};
+}

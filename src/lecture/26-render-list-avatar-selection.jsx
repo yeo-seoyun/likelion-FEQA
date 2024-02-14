@@ -1,5 +1,5 @@
 import './26-render-list-avatar-selection.css';
-import Avatar from '@/components/Avatar/Avatar';
+import { Avatar } from '@/components';
 import contactData from '@/data/contacts.json';
 
 function Exercise() {

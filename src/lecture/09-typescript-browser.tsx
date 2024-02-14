@@ -1,7 +1,3 @@
-// import React from 'https://esm.sh.jsx' // 불러올 수 없음
-
-// React, ReactDom
-
 // @ts-ignore
 const { createRoot } = ReactDOM;
 
