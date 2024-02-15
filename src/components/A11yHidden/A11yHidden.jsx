@@ -1,33 +1,23 @@
-// import { createElement as h } from 'react';
+import S from './A11yHidden.module.css';
+import { bool, oneOfType, string, elementType } from 'prop-types';
 
-function A11yHidden({ as: ComponentName = 'span', ...restProps }) {
-  // const ComponentName = as;
-  // JSX
-  // return <tag style={styles} {...restProps} />;
-  return <ComponentName style={styles} {...restProps} />;
+function A11yHidden({
+  as: ComponentName = 'span',
+  focusable = false,
+  className = '',
+  ...restProps
+}) {
+  const classNames = `${S.a11yHidden} ${
+    focusable ? S.focusable : ''
+  } ${className}`.trim();
 
-  // API) React.createElement(type, props, ...children)
-  // e.g) React.createElement('span', {...restProps})
-  // e.g) React.createElement('p', {...restProps})
-  // e.g) React.createElement(CustomComponentName, { ...restProps })
-  // return h(tag, { style: styles, ...restProps });
+  return <ComponentName className={classNames} {...restProps} />;
 }
 
-// CSS in JS 도구
-// styled-components
-// emotion
-
-const styles = {
-  overflow: 'hidden',
-  position: 'absolute',
-  clip: 'rect(0, 0, 0, 0)',
-  clipPath: 'circle(0)',
-  width: 1,
-  height: 1,
-  margin: -1,
-  padding: 0,
-  border: 0,
-  whiteSpace: 'nowrap',
+A11yHidden.propTypes = {
+  as: oneOfType([string, elementType]),
+  className: string,
+  focusable: bool,
 };
 
 export default A11yHidden;
